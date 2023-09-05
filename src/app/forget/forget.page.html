@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>forget</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Recupera tu cuenta</ion-card-title>
+      <ion-card-subtitle></ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      Ingresa tu correo electrónico para buscar tu cuenta.
+      <br><input type="text">
+    </ion-card-content>
+
+    <ion-button [routerLink]="['/login']">Cancelar</ion-button>
+    <ion-button id="present-alert">Enviar</ion-button>
+    <ion-alert trigger="present-alert"
+    header="Bien hecho!"
+    subHeader="Mensaje importante"
+    message="Se ha enviado correctamente!"
+    [buttons]="alertButtons">
+  </ion-alert>
+  </ion-card>
+</ion-content>
