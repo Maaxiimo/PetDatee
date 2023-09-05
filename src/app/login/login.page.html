@@ -1,6 +1,3 @@
-<ion-content color="light" class="ion-padding">
-  
-
 <ion-content class="ion-padding">
   <h1>PetDate</h1>
 
@@ -19,22 +16,10 @@
       <div *ngIf="formulario?.get('contrasena')?.hasError('contrasenaInvalida')" class="error-message">
         La contraseña debe tener al menos 8 caracteres, una letra mayúscula y un número.
       </div>
-      
-      <!-- Otros campos del formulario -->
   
-      <ion-button [routerLink]="['/home']" expand="full">Login</ion-button>
-      <ion-button expand="full" type="submit">Enviar</ion-button>
+      <ion-button [routerLink]="['/loading']" expand="full">Login</ion-button>
+      <a href="">¿Olvidaste tu contraseña?</a>
+      <ion-button [routerLink]="['/register']" expand="full" type="submit">Registrar</ion-button>
     </form>
-  </ion-content>
-  
-  
-  
-
-  <ion-button [routerLink]="['/home']" expand="full">Ingresar</ion-button>
-
-  <a href="">¿Olvidaste tu contraseña?</a>
-
-  <ion-button [routerLink]="['/register']" expand="full">Registrar</ion-button>
-  
-  
+  </ion-content>  
 </ion-content>
