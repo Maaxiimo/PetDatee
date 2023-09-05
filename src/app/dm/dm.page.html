@@ -1,4 +1,4 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
     <ion-title>DM</ion-title>
     <ion-buttons slot="start">
@@ -7,30 +7,26 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-card>
+<ion-content>
+  <ion-card>
+    <ion-card-content>
+      <img src="https://i.blogs.es/808765/dpoty-puppy-2nd--c--tracy-kirby-the-kennel-club-2/1366_2000.jpg" />
+      <h1>Oppenheimer</h1>
+    </ion-card-content>
+  </ion-card>
 
-  <ion-card-content>
-    <img src="https://i.blogs.es/808765/dpoty-puppy-2nd--c--tracy-kirby-the-kennel-club-2/1366_2000.jpg"/>
-    <h1>Oppenheimer</h1>
-  </ion-card-content>
 
-
-</ion-card>
-
-<div class="card text-center">
-  <div class="card-header">
-    Chat
+  <div class="card">
+    <div class="card-header">Chat</div>
   </div>
 
-  <div class="card-body">
-    
-  </div>
-  <div class="card-footer text-body-secondary">
+</ion-content>
+
+<ion-footer>
+  <div class="card-footer">
     <div class="input-group mb-3">
-      <input type="text" class="form-control" placeholder="Ingrese su mensaje" ><img src="https://cdn-icons-png.flaticon.com/512/3682/3682321.png" alt="">
-      <div class="input-group-append">
-        
-      </div>
+      <input type="text" class="form-control" placeholder="Ingrese su mensaje">
+      <ion-button fill="clear"><ion-icon name="paper-plane-outline"></ion-icon></ion-button>
     </div>
   </div>
-</div>
+</ion-footer>
