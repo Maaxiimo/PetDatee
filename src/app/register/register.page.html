@@ -5,7 +5,8 @@
 
   <h3>Registrarse</h3>
 
-  <ion-input label="Correo" labelPlacement="floating" [counter]="true"  minlength="3" maxlength="8"></ion-input>
+  <ion-input label="Nombre" labelPlacement="floating" [counter]="true"  minlength="3" maxlength="8"></ion-input>
+  <ion-input label="Correo" labelPlacement="floating" [counter]="true" maxlength="20"></ion-input>
   <ion-input label="Contraseña" labelPlacement="floating" [counter]="true" type="password" value="password" maxlength="4"></ion-input>
   <ion-button [routerLink]="['/login']" expand="full">Login</ion-button>
   <ion-button expand="full">Enviar</ion-button>
