@@ -8,10 +8,3 @@ import { Component } from '@angular/core';
 export class AppComponent {
   constructor() {}
 }
-export class ExampleComponent {
-  isModalOpen = false;
-
-  setOpen(isOpen: boolean) {
-    this.isModalOpen = isOpen;
-  }
-}
