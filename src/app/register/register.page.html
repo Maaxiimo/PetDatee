@@ -1,9 +1,3 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>Register</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content class="ion-padding">
   <h1>PetDate</h1>
 
@@ -13,6 +7,6 @@
 
   <ion-input label="Correo" labelPlacement="floating" [counter]="true"  minlength="3" maxlength="8"></ion-input>
   <ion-input label="Contraseña" labelPlacement="floating" [counter]="true" type="password" value="password" maxlength="4"></ion-input>
-  <ion-button [routerLink]="['/home']" expand="full">Login</ion-button>
-  <ion-button [routerLink]="['/register']" expand="full">Registrarse</ion-button>
+  <ion-button [routerLink]="['/login']" expand="full">Login</ion-button>
+  <ion-button expand="full">Enviar</ion-button>
 </ion-content>
