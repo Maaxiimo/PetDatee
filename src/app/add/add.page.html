@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button default-href="#"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Agregar</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <hr>
+  <ion-item>
+    <ion-label>Nombre</ion-label>
+    <ion-input placeholder="Ingrese nombre"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Edad</ion-label>
+    <ion-input placeholder="Ingrese edad" type="number"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-select label="Raza" placeholder="Seleccione raza">
+      <ion-select-option value="Labrador">Labrador</ion-select-option>
+      <ion-select-option value="Pugs">Pugs</ion-select-option>
+      <ion-select-option value="Chiguagua">Chiguagua</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-select label="Sexo" placeholder="Seleccione sexo">
+      <ion-select-option value="Femenino">Femenino</ion-select-option>
+      <ion-select-option value="Masculino">Masculino</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-label>Descripción</ion-label>
+    <ion-input placeholder="Ingrese descripción"></ion-input>
+  </ion-item>
+  <hr>
+    <ion-button [routerLink]="['/profile']">Agregar</ion-button>
+
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-button [routerLink]="['/home']" fill="clear"><ion-icon name="paw"></ion-icon></ion-button>
+    <ion-button [routerLink]="['/dm']" fill="clear"><ion-icon name="chatbubble-ellipses"></ion-icon></ion-button>
+    <ion-button [routerLink]="['/profile']" fill="clear"><ion-icon name="person"></ion-icon></ion-button>
+  </ion-toolbar>
+</ion-footer>
