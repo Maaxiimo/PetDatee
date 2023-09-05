@@ -10,8 +10,28 @@
   
 
   <ion-input label="Usuario" labelPlacement="floating" [counter]="true"  minlength="3" maxlength="8"></ion-input>
-  <ion-input label="Contraseña" labelPlacement="floating" [counter]="true" type="password" value="password" maxlength="4"></ion-input>
+  <ion-content>
+    <form [formGroup]="formulario" (ngSubmit)="enviarFormulario()">
+      <ion-input id="contrasena" label="Contraseña" labelPlacement="floating" type="password" formControlName="contrasena" maxlength="8"></ion-input>
+      <div *ngIf="formulario?.get('contrasena')?.hasError('required')" class="error-message">
+        La contraseña es requerida.
+      </div>
+      <div *ngIf="formulario?.get('contrasena')?.hasError('contrasenaInvalida')" class="error-message">
+        La contraseña debe tener al menos 8 caracteres, una letra mayúscula y un número.
+      </div>
+      
+      <!-- Otros campos del formulario -->
+  
+      <ion-button [routerLink]="['/home']" expand="full">Login</ion-button>
+      <ion-button expand="full" type="submit">Enviar</ion-button>
+    </form>
+  </ion-content>
+  
+  
+  
+
   <ion-button [routerLink]="['/home']" expand="full">Ingresar</ion-button>
+
   <a href="">¿Olvidaste tu contraseña?</a>
 
   <ion-button [routerLink]="['/register']" expand="full">Registrar</ion-button>
