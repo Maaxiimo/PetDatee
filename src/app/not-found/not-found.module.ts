@@ -1,12 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-
 import { IonicModule } from '@ionic/angular';
-
-
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { NotFoundPageRoutingModule } from './not-found-routing.module';
-
 import { NotFoundPage } from './not-found.page';
 
 @NgModule({
@@ -14,6 +11,7 @@ import { NotFoundPage } from './not-found.page';
     CommonModule,
     FormsModule,
     IonicModule,
+    MatProgressSpinnerModule,
     NotFoundPageRoutingModule
   ],
   declarations: [NotFoundPage]
