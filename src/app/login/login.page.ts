@@ -1,33 +1,23 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
-  templateUrl: 'login.page.html',
+  templateUrl: './login.page.html',
+  styleUrls: ['./login.page.scss'],
 })
 export class LoginPage {
+  password: string = ''; // Variable para almacenar el password ingresado
+  passwordValido: boolean = false; // Variable para habilitar/deshabilitar el botón
 
-  formulario: FormGroup;
+  constructor() {}
 
-  constructor(private formBuilder: FormBuilder) {
-    this.formulario = this.formBuilder.group({
-      contrasena: [
-        'password',
-        [Validators.required, this.validarContrasena]
-      ]
-    });
-  }
+  validarPassword() {
+    const regex = /^(?=.*\d{4})(?=.*[a-zA-Z]{3})(?=.*[A-Z]).{8,}$/;
 
-  validarContrasena(control: AbstractControl): { [key: string]: boolean } | null {
-    const value = control.value;
-    if (value && value.length >= 8 && /[A-Z]/.test(value) && /\d/.test(value)) {
-      return null;
+    if (regex.test(this.password)) {
+      this.passwordValido = true;
     } else {
-      return { contrasenaInvalida: true };
+      this.passwordValido = false;
     }
-  }
-
-  enviarFormulario() {
-    // Agrega aquí el código para manejar el envío del formulario
   }
 }
