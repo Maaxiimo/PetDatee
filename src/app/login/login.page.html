@@ -14,7 +14,9 @@
       <ion-label position="floating">Contraseña</ion-label>
       <ion-input type="password" [(ngModel)]="password" (input)="validarPassword()"></ion-input>
     </ion-item>
-    
+    <br>
+    <a [routerLink]="['/forget']" href="">¿Olvidaste tu contraseña?</a>
+    <br>
     <ion-button [routerLink]="['/home']" expand="full" [disabled]="!passwordValido">Iniciar Sesión</ion-button>
   </ion-content>
   
