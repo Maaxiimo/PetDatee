@@ -8,26 +8,11 @@ import { OverlayEventDetail } from '@ionic/core/components';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  @ViewChild(IonModal)
-  modal!: IonModal;
+  isModalOpen = false;
 
   constructor() {}
 
-  message = 'This modal example uses triggers to automatically open a modal when the button is clicked.';
-  name: string | undefined;
-
-  cancel() {
-    this.modal.dismiss(null, 'cancel');
-  }
-
-  confirm() {
-    this.modal.dismiss(this.name, 'confirm');
-  }
-
-  onWillDismiss(event: Event) {
-    const ev = event as CustomEvent<OverlayEventDetail<string>>;
-    if (ev.detail.role === 'confirm') {
-      this.message = `Hello, ${ev.detail.data}!`;
-    }
+  setOpen(isOpen: boolean) {
+    this.isModalOpen = isOpen;
   }
 }
