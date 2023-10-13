@@ -1,0 +1,34 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>user-edit</ion-title>
+    <ion-buttons slot="end">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]="userForm"  (ngSubmit)="onFormSubmit(userForm.value)">
+    <ion-item>
+      <ion-label position="floating">Nombre del usuario</ion-label>
+      <ion-input type="text" [(ngModel)]="usuario.first_name" formControlName="first_name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Apellido</ion-label>
+      <ion-input type="text" [(ngModel)]="usuario.last_name" formControlName="last_name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input type="text" [(ngModel)]="usuario.email" formControlName="email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Clave</ion-label>
+      <ion-input type="text" [(ngModel)]="usuario.clave" formControlName="clave"></ion-input>
+    </ion-item>
+    <ion-button type="submit" shape="round" color="primary" expand="block" [disabled]="!userForm.valid">Submit</ion-button>
+  </form>
+</ion-content>
