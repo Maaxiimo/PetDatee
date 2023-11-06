@@ -1,5 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
+    <ion-back-button default-href="#"></ion-back-button>
     <ion-title>geolocation</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -7,7 +8,7 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">geolocation</ion-title>
+    
     </ion-toolbar>
   </ion-header>
 </ion-content>
@@ -23,13 +24,5 @@
 
 <ion-content>
   <ion-button (click)="printCurrentPosition()">Obtener posición actual</ion-button>
-  <ion-button (click)="startWatch()">Comenzar seguimiento</ion-button>
-  <ion-button (click)="stopWatch()">Detener seguimiento</ion-button>
-
-  <div *ngIf="currentPosition">
-    <h3>Posición actual:</h3>
-    <p>Latitud: {{ currentPosition.latitude }}</p>
-    <p>Longitud: {{ currentPosition.longitude }}</p>
-  </div>
-  
+ 
 </ion-content>

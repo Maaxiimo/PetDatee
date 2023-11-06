@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button default-href="#"></ion-back-button>
+      <ion-back-button default-href="home"></ion-back-button>
     </ion-buttons>
     <ion-title>Perfil</ion-title>
     <ion-buttons slot="end">
@@ -18,7 +18,10 @@
     <br>
     Edad: 3 años
     <br>
-    Ubicacion: Conchali
+    <ion-item>
+      <ion-label>Ubicacion</ion-label>
+      <ion-button [routerLink]="['/geolocation']">Ver mi Ubicacion</ion-button>
+    </ion-item>
 </ion-content>
 <ion-footer>
   <ion-toolbar>
