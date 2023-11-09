@@ -40,10 +40,10 @@ const routes: Routes = [
     path: 'forget',
     loadChildren: () => import('./forget/forget.module').then( m => m.ForgetPageModule)
   },
-  //{
-  //  path: '**',
-  //  loadChildren: () => import('./not-found/not-found.module').then( m => m.NotFoundPageModule)
-  //},
+  {
+    path: '**',
+    loadChildren: () => import('./not-found/not-found.module').then( m => m.NotFoundPageModule)
+  },
   {
     path: 'product-add',
     loadChildren: () => import('./producto/product-add/product-add.module').then( m => m.ProductAddPageModule)
