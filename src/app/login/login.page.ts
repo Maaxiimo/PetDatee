@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { AuthService } from '../auth.service';
+import { NavController } from '@ionic/angular';
+import { Storage } from '@ionic/storage-angular';
 
 @Component({
   selector: 'app-login',
@@ -6,18 +9,26 @@ import { Component } from '@angular/core';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage {
-  password: string = ''; // Variable para almacenar el password ingresado
-  passwordValido: boolean = false; // Variable para habilitar/deshabilitar el botón
+  username: string = '';
+  password: string = '';
 
-  constructor() {}
+  constructor(private authService: AuthService, private navCtrl: NavController, private storage: Storage) {}
 
-  validarPassword() {
-    const regex = /^(?=.*\d{4})(?=.*[a-zA-Z]{3})(?=.*[A-Z]).{8,}$/;
-
-    if (regex.test(this.password)) {
-      this.passwordValido = true;
+  async login() {
+    const loggedIn = await this.authService.login(this.username, this.password);
+    if (loggedIn) {
+      this.navCtrl.navigateRoot('/home');
     } else {
-      this.passwordValido = false;
+      console.log('Credenciales incorrectas',);
+    }
+  }
+
+  async register() {
+    const registered = await this.authService.register(this.username, this.password);
+    if (registered) {
+      console.log('Usuario registrado correctamente',this.username);
+    } else {
+      console.log('Error al registrar el usuario');
     }
   }
 }

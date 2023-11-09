@@ -1,10 +1,13 @@
-import { Component, ElementRef, ViewChildren, ViewChild } from '@angular/core';
+  import { Component, ElementRef, ViewChildren, ViewChild } from '@angular/core';
 import { IonModal } from '@ionic/angular';
 import { OverlayEventDetail } from '@ionic/core/components';
 import type { QueryList } from '@angular/core';
 import type { Animation } from '@ionic/angular';
 import { AnimationController, IonCard } from '@ionic/angular';
 import { Router } from '@angular/router';
+
+import { NavController } from '@ionic/angular';
+import { AuthService } from '../auth.service';
 
 
 @Component({
@@ -19,7 +22,12 @@ export class HomePage {
 
   private animation!: Animation;
 
-  constructor(private animationCtrl: AnimationController) {}
+  constructor(private animationCtrl: AnimationController, private authService: AuthService, private navCtrl: NavController) {}
+
+  async logout() {
+    await this.authService.logout();
+    this.navCtrl.navigateRoot('/login');
+  }
 
   ngAfterViewInit() {
     this.animation = this.animationCtrl
