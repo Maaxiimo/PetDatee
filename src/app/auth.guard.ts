@@ -18,7 +18,7 @@ export class AuthGuard implements CanActivate {
     // Aquí debes verificar si el usuario está autenticado
     // Puedes usar servicios de autenticación, almacenamiento local, tokens, etc.
  
-    const isAuthenticated = false;//await this.storage.get('isLoggedIn') // Cambia esto a tu lógica de autenticación
+    const isAuthenticated = true;//await this.storage.get('isLoggedIn') // Cambia esto a tu lógica de autenticación
   
     if (isAuthenticated) {
  
