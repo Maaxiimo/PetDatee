@@ -23,13 +23,5 @@
 
 <ion-content>
   <ion-button (click)="printCurrentPosition()">Obtener posición actual</ion-button>
-  <ion-button (click)="startWatch()">Comenzar seguimiento</ion-button>
-  <ion-button (click)="stopWatch()">Detener seguimiento</ion-button>
 
-  <div *ngIf="currentPosition">
-    <h3>Posición actual:</h3>
-    <p>Latitud: {{ currentPosition.latitude }}</p>
-    <p>Longitud: {{ currentPosition.longitude }}</p>
-  </div>
-  
 </ion-content>

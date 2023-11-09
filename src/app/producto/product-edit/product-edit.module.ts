@@ -13,7 +13,7 @@ import { ReactiveFormsModule } from '@angular/forms';  // <<========
     CommonModule,
     FormsModule,
     IonicModule,
-    ReactiveFormsModule,         // <<========
+    ReactiveFormsModule,      // <<========
     ProductEditPageRoutingModule
   ],
   declarations: [ProductEditPage]

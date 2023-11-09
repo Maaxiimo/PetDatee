@@ -45,23 +45,19 @@ const routes: Routes = [
   //},
   {
     path: 'product-add',
-    loadChildren: () => import('./productos/product-add/product-add.module').then( m => m.ProductAddPageModule)
-  },
-  {
-    path: 'product-all',
-    loadChildren: () => import('./productos/product-all/product-all.module').then( m => m.ProductAllPageModule)
+    loadChildren: () => import('./producto/product-add/product-add.module').then( m => m.ProductAddPageModule)
   },
   {
     path: 'product-detail/:id',
-    loadChildren: () => import('./productos/product-detail/product-detail.module').then( m => m.ProductDetailPageModule)
+    loadChildren: () => import('./producto/product-detail/product-detail.module').then( m => m.ProductDetailPageModule)
   },
   {
     path: 'product-edit/:id',
-    loadChildren: () => import('./productos/product-edit/product-edit.module').then( m => m.ProductEditPageModule)
+    loadChildren: () => import('./producto/product-edit/product-edit.module').then( m => m.ProductEditPageModule)
   },
   {
     path: 'product-list',
-    loadChildren: () => import('./productos/product-list/product-list.module').then( m => m.ProductListPageModule)
+    loadChildren: () => import('./producto/product-list/product-list.module').then( m => m.ProductListPageModule)
   },
   {
     path: 'user-add',
@@ -82,7 +78,8 @@ const routes: Routes = [
   {
     path: 'user-list',
     loadChildren: () => import('./usuarios/user-list/user-list.module').then( m => m.UserListPageModule)
-  },  {
+  },
+  {
     path: 'camara',
     loadChildren: () => import('./camara/camara.module').then( m => m.CamaraPageModule)
   },

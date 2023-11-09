@@ -2,32 +2,44 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroupDirective, FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { LoadingController, AlertController } from '@ionic/angular';
 import { ActivatedRoute, Router } from '@angular/router';
-
-import { ClProducto } from '../model/CLProducto';
+import { ClProducto } from '../model/ClProducto';
 
 import { ProductServiceService } from '../product-service.service';
 
-let ultimoId = 1000; 
-
+let ultimoId = 3;
 @Component({
   selector: 'app-product-add',
   templateUrl: './product-add.page.html',
   styleUrls: ['./product-add.page.scss'],
+  
+  
 })
 export class ProductAddPage implements OnInit {
   //Creamos una variable del tipo FormGroup
   // ! ==> Con esto le decimos a TS, que sabemos que la variable no esta inicializada
   //          y que estamos seguro que cuando se ejecute no será null
   productForm!: FormGroup;
+  
   // Generalmente se usa una interface, sin embargo para jugar utilizaremos  una clase
   producto: ClProducto = {
-    id: ++ultimoId
-    , nombre: ''
-    , descripcion: ''
-    , precio: 1
-    , fecha: new Date()
-    , cantidad: 1
-  };
+      codigo: "09-G5",
+      nombreprod: "",
+      precio: 0,
+      cantidad: 0,
+      rut: 0,
+      dv: "0",
+      enfermedad: "0",
+      fonocontacto: 0,
+      categoria: "0",
+      editorial: "0",
+      raza: "0",
+      edad: 0,
+      altura: 0,
+      hrini: "0",
+      hrfin: "0",
+      direccion: "0" }
+  
+  
 
   // Injectamos FormBuilder, el cual nos permitirá realizar validaciones                         
   constructor(private formBuilder: FormBuilder,
