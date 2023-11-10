@@ -9,37 +9,38 @@
 
 <ion-content [fullscreen]="true">
   <hr>
-  <ion-item>
-    <ion-label>Nombre</ion-label>
-    <ion-input placeholder="Ingrese nombre"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label>Edad</ion-label>
-    <ion-input placeholder="Ingrese edad" type="number"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-select label="Raza" placeholder="Seleccione raza">
-      <ion-select-option value="Labrador">Labrador</ion-select-option>
-      <ion-select-option value="Pugs">Pugs</ion-select-option>
-      <ion-select-option value="Chiguagua">Chiguagua</ion-select-option>
-    </ion-select>
-  </ion-item>
-  <ion-item>
-    <ion-select label="Sexo" placeholder="Seleccione sexo">
-      <ion-select-option value="Femenino">Femenino</ion-select-option>
-      <ion-select-option value="Masculino">Masculino</ion-select-option>
-    </ion-select>
-  </ion-item>
-  <ion-item>
-    <ion-label>Descripción</ion-label>
-    <ion-input placeholder="Ingrese descripción"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label>Foto</ion-label>
-    <ion-button [routerLink]="['/camara']">Agregar</ion-button>
-  </ion-item>
-  <hr>
-    <ion-button [routerLink]="['/profile']">Agregar</ion-button>
+  <form [formGroup]="petForm" (ngSubmit)="onSubmit()">
+    <ion-item>
+      <ion-label>Nombre</ion-label>
+      <ion-input formControlName="nombre" placeholder="Ingrese nombre"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Edad</ion-label>
+      <ion-input formControlName="edad" placeholder="Ingrese edad" type="number"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-select formControlName="raza" label="Raza" placeholder="Seleccione raza">
+        <ion-select-option value="Labrador">Labrador</ion-select-option>
+        <ion-select-option value="Pugs">Pugs</ion-select-option>
+        <ion-select-option value="Chiguagua">Chiguagua</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-select formControlName="sexo" label="Sexo" placeholder="Seleccione sexo">
+        <ion-select-option value="Femenino">Femenino</ion-select-option>
+        <ion-select-option value="Masculino">Masculino</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>Descripción</ion-label>
+      <ion-input formControlName="descripcion" placeholder="Ingrese descripción"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Foto</ion-label>
+      <ion-button [routerLink]="['/camara']">Agregar</ion-button>
+    </ion-item>
+    <ion-button type="submit">Enviar</ion-button>
+  </form>
 </ion-content>
 
 <ion-footer>
