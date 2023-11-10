@@ -16,6 +16,9 @@ import { AuthService } from '../auth.service';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+
+  nombreUsuario: string = "Maxim";
+
   @ViewChild(IonCard, { read: ElementRef })
   card!: ElementRef<HTMLIonCardElement>;
   isModalOpen = false;
