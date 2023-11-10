@@ -1,8 +1,4 @@
 <ion-content>
-  <ion-button expand="full" (click)="logout()">Cerrar Sesión</ion-button>
-</ion-content>
-
-<ion-content>
   <h1>PetDate</h1>
   <ion-card #card>
     <ion-card-content>
@@ -30,13 +26,11 @@
           <br>
           Edad: 3 años
           <br>
-          <ion-item>
-            <ion-label>Ubicacion</ion-label>
-            <ion-button [routerLink]="['/geolocation']">Ver ubicacion</ion-button>
-          </ion-item>
+          <ion-button [routerLink]="['/geolocation']">Ver ubicacion</ion-button>
       </ion-content>
     </ng-template>
   </ion-modal>
+  <ion-button fill="clear" (click)="logout()">Cerrar Sesión</ion-button>
 </ion-content>
 
 <ion-footer>
