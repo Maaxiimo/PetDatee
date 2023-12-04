@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage-angular';
+import { HttpClientModule } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
