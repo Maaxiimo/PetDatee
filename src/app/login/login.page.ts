@@ -22,13 +22,4 @@ export class LoginPage {
       console.log('Credenciales incorrectas',);
     }
   }
-
-  async register() {
-    const registered = await this.authService.register(this.username, this.password);
-    if (registered) {
-      console.log('Usuario registrado correctamente',this.username);
-    } else {
-      console.log('Error al registrar el usuario');
-    }
-  }
 }

@@ -9,5 +9,5 @@
   <ion-input label="Correo" labelPlacement="floating" [counter]="true" maxlength="20"></ion-input>
   <ion-input id="contrasena" label="Contraseña" labelPlacement="floating" [counter]="true" type="password" value="password" maxlength="8"></ion-input>
   <ion-button [routerLink]="['/login']" expand="full">Login</ion-button>
-  <ion-button expand="full">Enviar</ion-button>
+  <ion-button expand="full" (click)="register()">Enviar</ion-button>
 </ion-content>
