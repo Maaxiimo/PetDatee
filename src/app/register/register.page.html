@@ -1,13 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Registro
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
 <ion-content class="ion-padding">
-  <h1>PetDate</h1>
+  <ion-item>
+    <ion-label position="floating">Nombre de usuario</ion-label>
+    <ion-input [(ngModel)]="username" name="username" type="text" required></ion-input>
+  </ion-item>
+  <ion-item *ngIf="usernameError" color="danger">
+    <ion-label>Nombre de usuario inválido. Debe ser obligatorio.</ion-label>
+  </ion-item>
 
-  <img src="https://o.remove.bg/downloads/666042fe-69a5-449c-8268-5f40ad5a0abb/png-transparent-dog-paw-cat-footprint-gray-footprints-miscellaneous-angle-white-thumbnail-removebg-preview.png" alt="">
+  <ion-item>
+    <ion-label position="floating">Contraseña</ion-label>
+    <ion-input [(ngModel)]="password" name="password" type="password" required></ion-input>
+  </ion-item>
+  <ion-item *ngIf="passwordError" color="danger">
+    <ion-label>Contraseña inválida. Debe tener 3 caracteres, 4 números y una mayúscula.</ion-label>
+  </ion-item>
 
-  <h3>Registrarse</h3>
+  <ion-item>
+    <ion-label position="floating">Correo electrónico</ion-label>
+    <ion-input [(ngModel)]="email" name="email" type="email" required></ion-input>
+  </ion-item>
+  <ion-item *ngIf="emailError" color="danger">
+    <ion-label>Correo electrónico inválido. Debe ser obligatorio y tener un formato válido.</ion-label>
+  </ion-item>
 
-  <ion-input label="Nombre" labelPlacement="floating" [counter]="true"  minlength="3" maxlength="8"></ion-input>
-  <ion-input label="Correo" labelPlacement="floating" [counter]="true" maxlength="20"></ion-input>
-  <ion-input id="contrasena" label="Contraseña" labelPlacement="floating" [counter]="true" type="password" value="password" maxlength="8"></ion-input>
-  <ion-button [routerLink]="['/login']" expand="full">Login</ion-button>
-  <ion-button expand="full">Enviar</ion-button>
+  <ion-button expand="full" [disabled]="!isValidForm()" (click)="register()">Registrar</ion-button>
 </ion-content>
