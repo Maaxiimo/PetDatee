@@ -16,12 +16,11 @@ export class RegisterPage {
   constructor(private authService: AuthService, private navCtrl: NavController, private storage: Storage) {}
 
   async register() {
-    // Check if passwords match
-    if (this.password !== this.confirmPassword) {
-      console.log('Passwords do not match');
-      return;
+    const registered = await this.authService.register(this.username, this.password);
+    if (registered) {
+      console.log('Usuario registrado correctamente',this.username);
+    } else {
+      console.log('Error al registrar el usuario');
     }
-
-    const registered = await this.authService.register(this.username, this.password);  
-  }
+}
 }
