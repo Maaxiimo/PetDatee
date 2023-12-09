@@ -18,11 +18,15 @@ export class LoginPage {
   login() {
     if (this.isValidForm()) {
       // Aquí puedes agregar la lógica de autenticación
-      // Por ahora, simplemente navegarás a la página de inicio
-      this.saveFormData();
+
+      // Guarda los valores en localStorage
+      localStorage.setItem('username', this.username);
+      localStorage.setItem('password', this.password);
+      // Navega a la página de inicio
       this.navCtrl.navigateRoot('/home');
     }
   }
+  
 
   isValidForm(): boolean {
     this.usernameError = this.username.trim().length === 0;

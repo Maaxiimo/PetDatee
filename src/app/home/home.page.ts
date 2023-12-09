@@ -15,9 +15,10 @@ import { AuthService } from '../auth.service';
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
+
 export class HomePage {
 
-  nombreUsuario: string = "Maxim";
+  username: string = localStorage.getItem('username') || '';
 
   @ViewChild(IonCard, { read: ElementRef })
   card!: ElementRef<HTMLIonCardElement>;
