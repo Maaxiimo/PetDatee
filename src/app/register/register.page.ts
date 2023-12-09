@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { AuthService } from '../auth.service';
 import { NavController } from '@ionic/angular';
 import { Storage } from '@ionic/storage-angular';
 
@@ -9,18 +8,34 @@ import { Storage } from '@ionic/storage-angular';
   styleUrls: ['./register.page.scss'],
 })
 export class RegisterPage {
-  username: string = '';
-  password: string = '';
-  confirmPassword: string = '';
+  username: string = localStorage.getItem('register_username') || '';
+  password: string = localStorage.getItem('register_password') || '';
+  email: string = localStorage.getItem('register_email') || '';
+  usernameError: boolean = false;
+  passwordError: boolean = false;
+  emailError: boolean = false;
 
-  constructor(private authService: AuthService, private navCtrl: NavController, private storage: Storage) {}
+  constructor(private navCtrl: NavController) {}
 
-  async register() {
-    const registered = await this.authService.register(this.username, this.password);
-    if (registered) {
-      console.log('Usuario registrado correctamente',this.username);
-    } else {
-      console.log('Error al registrar el usuario');
+  register() {
+    if (this.isValidForm()) {
+      // Aquí puedes agregar la lógica de registro
+      // Por ahora, simplemente navegarás a la página de inicio
+      this.saveFormData();
+      this.navCtrl.navigateRoot('/home');
     }
-}
+  }
+
+  isValidForm(): boolean {
+    this.usernameError = this.username.trim().length === 0;
+    this.passwordError = !/^(?=.*[A-Z])(?=.*\d.*\d.*\d)(.{3,})$/.test(this.password);
+    this.emailError = !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.email);
+    return !this.usernameError && !this.passwordError && !this.emailError;
+  }
+
+  private saveFormData(): void {
+    localStorage.setItem('register_username', this.username);
+    localStorage.setItem('register_password', this.password);
+    localStorage.setItem('register_email', this.email);
+  }
 }

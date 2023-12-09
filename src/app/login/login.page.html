@@ -1,25 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Iniciar Sesión
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
 <ion-content class="ion-padding">
-  <h1>PetDate</h1>
+  <ion-item>
+    <ion-label position="floating">Nombre de usuario</ion-label>
+    <ion-input [(ngModel)]="username" name="username" type="text" required></ion-input>
+  </ion-item>
+  <ion-item *ngIf="usernameError" color="danger">
+    <ion-label>Nombre de usuario inválido. Debe ser obligatorio.</ion-label>
+  </ion-item>
 
- 
-  <img src="/assets/icon/png-transparent-dog-paw-cat-footprint-gray-footprints-miscellaneous-angle-white-thumbnail-removebg-preview.png" alt="">
+  <ion-item>
+    <ion-label position="floating">Contraseña</ion-label>
+    <ion-input [(ngModel)]="password" name="password" type="password" required></ion-input>
+  </ion-item>
+  <ion-item *ngIf="passwordError" color="danger">
+    <ion-label>Contraseña inválida. Debe tener 3 caracteres, 4 números y una mayúscula.</ion-label>
+  </ion-item>
 
+  <ion-button expand="full" [disabled]="!isValidForm()" (click)="login()">Iniciar Sesión</ion-button>
+  <ion-button expand="full"[routerLink]="['/register']" (click)="login()">Registrarse</ion-button>
   
-  <h3>Login</h3>
-  
-  <ion-content>
-    <ion-item>
-      <ion-label position="floating">Nombre de usuario</ion-label>
-      <ion-input [(ngModel)]="username" name="username" type="text"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="floating">Contraseña</ion-label>
-    <ion-input [(ngModel)]="password" name="password" type="password"></ion-input>
-    </ion-item>
-    <br>
-    <a [routerLink]="['/forget']" href="">¿Olvidaste tu contraseña?</a>
-    <br>
-    <ion-button [routerLink]="['/loading']" expand="full" (click)="login()">Iniciar Sesión</ion-button>
-    <ion-button [routerLink]="['/register']" expand="full">Registrarse</ion-button>
-  </ion-content>
-  
+</ion-content>

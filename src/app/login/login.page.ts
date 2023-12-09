@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { AuthService } from '../auth.service';
 import { NavController } from '@ionic/angular';
 import { Storage } from '@ionic/storage-angular';
 
@@ -9,17 +8,30 @@ import { Storage } from '@ionic/storage-angular';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage {
-  username: string = '';
-  password: string = '';
+  username: string = localStorage.getItem('login_username') || '';
+  password: string = localStorage.getItem('login_password') || '';
+  usernameError: boolean = false;
+  passwordError: boolean = false;
 
-  constructor(private authService: AuthService, private navCtrl: NavController, private storage: Storage) {}
+  constructor(private navCtrl: NavController) {}
 
-  async login() {
-    const loggedIn = await this.authService.login(this.username, this.password);
-    if (loggedIn) {
+  login() {
+    if (this.isValidForm()) {
+      // Aquí puedes agregar la lógica de autenticación
+      // Por ahora, simplemente navegarás a la página de inicio
+      this.saveFormData();
       this.navCtrl.navigateRoot('/home');
-    } else {
-      console.log('Credenciales incorrectas',);
     }
+  }
+
+  isValidForm(): boolean {
+    this.usernameError = this.username.trim().length === 0;
+    this.passwordError = !/^(?=.*[A-Z])(?=.*\d.*\d.*\d)(.{3,})$/.test(this.password);
+    return !this.usernameError && !this.passwordError;
+  }
+
+  private saveFormData(): void {
+    localStorage.setItem('login_username', this.username);
+    localStorage.setItem('login_password', this.password);
   }
 }
