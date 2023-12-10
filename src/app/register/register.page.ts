@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { NavController } from '@ionic/angular';
-import { Storage } from '@ionic/storage-angular';
 
 @Component({
   selector: 'app-register',
@@ -8,9 +7,9 @@ import { Storage } from '@ionic/storage-angular';
   styleUrls: ['./register.page.scss'],
 })
 export class RegisterPage {
-  username: string = localStorage.getItem('register_username') || '';
-  password: string = localStorage.getItem('register_password') || '';
-  email: string = localStorage.getItem('register_email') || '';
+  username: string = localStorage.getItem('username') || '';
+  password: string = localStorage.getItem('password') || '';
+  email: string = localStorage.getItem('email') || '';
   usernameError: boolean = false;
   passwordError: boolean = false;
   emailError: boolean = false;
@@ -20,9 +19,17 @@ export class RegisterPage {
   register() {
     if (this.isValidForm()) {
       // Aquí puedes agregar la lógica de registro
-      // Por ahora, simplemente navegarás a la página de inicio
-      this.saveFormData();
-      this.navCtrl.navigateRoot('/home');
+
+      // Guarda los valores en localStorage
+      localStorage.setItem('username', this.username);
+      localStorage.setItem('password', this.password);
+      localStorage.setItem('email', this.email);
+
+      // Marca como registrado en localStorage
+      localStorage.setItem('isRegistered', 'true');
+
+      // Navega a la página de inicio de sesión (login)
+      this.navCtrl.navigateRoot('/login');
     }
   }
 
@@ -31,11 +38,5 @@ export class RegisterPage {
     this.passwordError = !/^(?=.*[A-Z])(?=.*\d.*\d.*\d)(.{3,})$/.test(this.password);
     this.emailError = !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.email);
     return !this.usernameError && !this.passwordError && !this.emailError;
-  }
-
-  private saveFormData(): void {
-    localStorage.setItem('register_username', this.username);
-    localStorage.setItem('register_password', this.password);
-    localStorage.setItem('register_email', this.email);
   }
 }
