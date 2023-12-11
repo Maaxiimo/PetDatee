@@ -1,4 +1,4 @@
-  import { Component, ElementRef, ViewChildren, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChildren, ViewChild } from '@angular/core';
 import { IonModal } from '@ionic/angular';
 import { OverlayEventDetail } from '@ionic/core/components';
 import type { QueryList } from '@angular/core';
@@ -45,7 +45,19 @@ export class HomePage {
   play() {
     this.animation.play();
   }
-  
+
+  playGreen() {
+    // Crea una nueva animación para el color verde
+    const greenAnimation = this.animationCtrl
+      .create()
+      .addElement(this.card.nativeElement)
+      .duration(3000)
+      .direction('alternate')
+      .fromTo('background', 'green', 'var(--background)');
+
+      greenAnimation.play();
+  }
+
   setOpen(isOpen: boolean) {
     this.isModalOpen = isOpen;
   }
