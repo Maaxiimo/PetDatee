@@ -47,7 +47,6 @@ export class HomePage {
   }
 
   playGreen() {
-    // Crea una nueva animación para el color verde
     const greenAnimation = this.animationCtrl
       .create()
       .addElement(this.card.nativeElement)

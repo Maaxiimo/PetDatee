@@ -20,6 +20,9 @@ export class RegisterPage {
     if (this.isValidForm()) {
       // Aquí puedes agregar la lógica de registro
 
+       // Muestra los datos proporcionados en la consola antes de registrar
+       console.log('Datos proporcionados:', { username: this.username, password: this.password, email: this.email });
+
       // Guarda los valores en localStorage
       localStorage.setItem('username', this.username);
       localStorage.setItem('password', this.password);
@@ -28,8 +31,14 @@ export class RegisterPage {
       // Marca como registrado en localStorage
       localStorage.setItem('isRegistered', 'true');
 
+      // Muestra mensajes en la consola
+      console.log('Registro exitoso');
+
       // Navega a la página de inicio de sesión (login)
       this.navCtrl.navigateRoot('/login');
+    } else {
+      // Muestra mensajes en la consola
+      console.log('Error en el registro. Por favor, verifica tus datos.');
     }
   }
 
